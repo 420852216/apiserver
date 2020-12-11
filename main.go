@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"apiserver/settings"
+	"apiserver/utils/db"
+	"apiserver/utils/logger"
+)
 
 func main() {
-	fmt.Println(123)
+	settings.InitProject()
+	defer db.Sqlx.Close()
+	defer logger.Log.Sync()
+
 }

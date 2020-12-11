@@ -1,0 +1,2 @@
+{"level":"debug","time":"2020-12-11 18:34:50","file":"user/dao.go:31","msg":"SELECT 1 FROM user WHERE email=? LIMIT 1","-->":"wt@com.co1m"}
+{"level":"debug","time":"2020-12-11 18:34:50","file":"user/dao.go:20","msg":"INSERT INTO user (password,name,email,phone,created_at,updated_at) VALUES(:password,:name,:email,:phone,:created_at,:updated_at)","-->":{"ID":0,"PassWord":"e10adc3949ba59abbe56e057f20f883e","Name":"wt","Email":"wt@com.co1m","Phone":"","created_at":"2020-12-11T18:34:50.170147+08:00","updated_at":"2020-12-11T18:34:50.170147+08:00"}}
