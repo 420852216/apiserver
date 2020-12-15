@@ -33,3 +33,10 @@ func Failed(ctx *gin.Context, msg string, v interface{}) {
 	})
 }
 
+func AuthFailed(ctx *gin.Context, v interface{}) {
+	ctx.JSON(http.StatusUnauthorized, Response{
+		Code: FAILED,
+		Msg:  v,
+		Data: nil,
+	})
+}

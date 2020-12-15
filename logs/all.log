@@ -1,3 +1,0 @@
-{"path": "/register", "status": 200, "method": "POST", "query": "", "ip": "127.0.0.1", "time": "2020/12/11 - 10:26:31", "latency": 3105996}
-{"path": "/register", "status": 200, "method": "POST", "query": "", "ip": "127.0.0.1", "time": "2020/12/11 - 10:26:31", "latency": 1461933}
-{"path": "/register", "status": 200, "method": "POST", "query": "", "ip": "127.0.0.1", "time": "2020/12/11 - 10:26:32", "latency": 989545}

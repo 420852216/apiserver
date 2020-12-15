@@ -1,0 +1,154 @@
+basePath: /
+definitions:
+  user.LoginReq:
+    properties:
+      email:
+        description: 邮箱
+        example: wt@com.com
+        type: string
+      password:
+        description: 密码
+        example: "123456"
+        type: string
+    required:
+    - email
+    - password
+    type: object
+  user.LoginResp:
+    properties:
+      authorization:
+        type: string
+      email:
+        type: string
+      name:
+        type: string
+      phone:
+        type: string
+    type: object
+  user.RegisterRep:
+    properties:
+      email:
+        description: 邮箱
+        example: jhon@gmail.com
+        type: string
+      name:
+        description: 姓名
+        example: jhon
+        type: string
+      password1:
+        description: 密码
+        example: "123456"
+        type: string
+      password2:
+        description: 密码
+        example: "123456"
+        type: string
+      phone:
+        description: 手机号
+        example: "18817281823"
+        type: string
+    required:
+    - email
+    - name
+    type: object
+  utils.SuccessResp:
+    properties:
+      code:
+        example: 0
+        type: integer
+      data:
+        type: object
+      msg:
+        type: string
+    type: object
+host: 127.0.0.1:9527
+info:
+  contact:
+    name: 是
+  description: API 文档
+  license: {}
+  title: Swagger API 文档
+  version: v1
+paths:
+  /api/user/{id}:
+    put:
+      consumes:
+      - application/json
+      description: 修改用户信息
+      parameters:
+      - description: user ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 请求成功
+          schema:
+            $ref: '#/definitions/utils.SuccessResp'
+      security:
+      - ApiKeyAuth: []
+      summary: 修改用户信息
+      tags:
+      - 修改用户信息
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: |-
+        登陆
+        不需要token
+      parameters:
+      - description: 请求参数
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/user.LoginReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 请求成功
+          schema:
+            allOf:
+            - $ref: '#/definitions/utils.SuccessResp'
+            - properties:
+                data:
+                  $ref: '#/definitions/user.LoginResp'
+              type: object
+      summary: 用户登陆
+      tags:
+      - 用户登陆
+  /register:
+    post:
+      consumes:
+      - application/json
+      description: |-
+        注册
+        不需要token
+      parameters:
+      - description: 请求参数
+        in: body
+        name: message
+        required: true
+        schema:
+          $ref: '#/definitions/user.RegisterRep'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 请求成功
+          schema:
+            $ref: '#/definitions/utils.SuccessResp'
+      summary: 用户注册
+      tags:
+      - 用户注册
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: Authorization
+    type: apiKey
+swagger: "2.0"

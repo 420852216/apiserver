@@ -2,10 +2,14 @@ package settings
 
 import (
 	"apiserver/apps/user"
+	_ "apiserver/docs"
+	"apiserver/settings/middleware"
 	"apiserver/utils"
 	"apiserver/utils/db"
 	"apiserver/utils/logger"
 	"github.com/gin-gonic/gin"
+	swaggerFiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 )
 
 var DEBUG = true
@@ -21,6 +25,7 @@ func InitProject()  {
 		PORT:        "3306",
 		MAXIDLECONN: 10,
 		MAXOPENCONN: 128,
+		DEBUG: DEBUG,
 	}
 	err:=db.Connect(dbConfig)
 	if err != nil {
@@ -34,6 +39,12 @@ func InitProject()  {
 		middleware.RecoveryWithZap(logger.Log,true))
 	*/
 	router := gin.Default()
+	router.Use(middleware.Cors())
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	router.POST("/register", user.Register)
+	router.POST("/login", user.Login,middleware.SetJSONWebToken)
+	v1:=router.Group("/api")
+	v1.Use(middleware.JWTMiddleware())
+	user.Urls(v1)
 	router.Run(":9527")
 }

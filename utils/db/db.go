@@ -4,6 +4,7 @@ package db
 
 import (
 	"apiserver/utils/logger"
+	. "apiserver/utils/logger"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jmoiron/sqlx"
@@ -20,6 +21,7 @@ type Config struct {
 	PORT        string
 	MAXIDLECONN int
 	MAXOPENCONN int
+	DEBUG bool
 }
 
 type modeler interface {
@@ -28,6 +30,7 @@ type modeler interface {
 
 type database struct {
 	*sqlx.DB
+	showSQL bool
 }
 
 var Sqlx *database
@@ -46,5 +49,23 @@ func Connect(cfg Config) (err error) {
 	db.SetConnMaxLifetime(time.Second * 10)
 	Sqlx = new(database)
 	Sqlx.DB=db
+	Sqlx.showSQL = cfg.DEBUG
 	return nil
+}
+
+func (db *database) Get(dest interface{}, query string, args ...interface{}) error {
+	if db.showSQL{
+		Log.Debug(query, zap.Any("args",args))
+	}
+	return db.Unsafe().Get(dest, query, args...)
+
+}
+
+func (db *database) PrepareNamed(query string) (*sqlx.NamedStmt, error) {
+	sql,err:=db.DB.PrepareNamed(query)
+	if db.showSQL && err==nil{
+		Log.Debug(sql.QueryString)
+	}
+	return sql,err
+
 }

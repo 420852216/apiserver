@@ -67,7 +67,9 @@ func (db database) RelationGet(dest interface{}, query string, args ...interface
 	if err != nil {
 		return
 	}
-	Log.Debug(query, zap.Any("-->",args))
+	if db.showSQL{
+		Log.Debug(query, zap.Any("args",args))
+	}
 	destType := reflect.TypeOf(dest).Elem()
 	for i := 0; i < destType.NumField(); i++ {
 		if destType.Field(i).Anonymous {
@@ -97,7 +99,9 @@ func (db database) RelationSelect(dest interface{}, query string, args ...interf
 	if err != nil {
 		return
 	}
-	Log.Debug(query, zap.Any("-->",args))
+	if db.showSQL{
+		Log.Debug(query, zap.Any("args",args))
+	}
 	destVal := reflect.Indirect(reflect.ValueOf(dest))
 	count := destVal.Len()
 	if count == 0 {
