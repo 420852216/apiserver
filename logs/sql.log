@@ -54,3 +54,46 @@
 {"level":"debug","time":"2020-12-15 18:22:12","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
 {"level":"debug","time":"2020-12-15 18:23:41","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
 {"level":"debug","time":"2020-12-15 18:23:59","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 09:45:31","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 09:46:59","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 09:50:40","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 09:50:59","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 09:51:47","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 09:57:48","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 10:01:51","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 10:02:37","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 10:07:12","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 10:07:21","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 10:08:59","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 10:14:54","file":"db/db.go:67","msg":"UPDATE user SET name =?,phone =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 10:17:56","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 10:18:00","file":"db/db.go:67","msg":"UPDATE user SET name =? WHERE id =?"}
+{"level":"debug","time":"2020-12-16 10:54:11","file":"db/db.go:67","msg":"DELETE FROM user WHERE id =?"}
+{"level":"debug","time":"2020-12-16 15:28:45","file":"db/db.go:58","msg":"SELECT name,email,phone FROM user WHERE email=? AND password=? LIMIT 1","args":["wt@com.com","e10adc3949ba59abbe56e057f20f883e"]}
+{"level":"debug","time":"2020-12-16 16:30:28","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =?"}
+{"level":"debug","time":"2020-12-16 16:31:12","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =?"}
+{"level":"debug","time":"2020-12-16 16:31:17","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =?"}
+{"level":"debug","time":"2020-12-16 16:31:21","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =?"}
+{"level":"debug","time":"2020-12-16 16:31:29","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =?"}
+{"level":"debug","time":"2020-12-16 16:31:36","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =?"}
+{"level":"debug","time":"2020-12-16 16:31:53","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =?"}
+{"level":"debug","time":"2020-12-16 16:32:03","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =?"}
+{"level":"debug","time":"2020-12-16 16:34:10","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =?"}
+{"level":"debug","time":"2020-12-16 17:04:13","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =?"}
+{"level":"debug","time":"2020-12-16 17:07:10","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =?"}
+{"level":"debug","time":"2020-12-16 17:23:53","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =?"}
+{"level":"debug","time":"2020-12-16 17:24:10","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =?"}
+{"level":"debug","time":"2020-12-16 17:24:12","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =?"}
+{"level":"debug","time":"2020-12-16 17:26:05","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =?"}
+{"level":"debug","time":"2020-12-16 17:28:21","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =?"}
+{"level":"debug","time":"2020-12-16 17:28:27","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =?"}
+{"level":"debug","time":"2020-12-16 17:28:37","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =?"}
+{"level":"debug","time":"2020-12-16 17:38:09","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =?"}
+{"level":"debug","time":"2020-12-16 17:38:21","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =?"}
+{"level":"debug","time":"2020-12-16 17:38:35","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =? LIMIT 1 OFFSET 1"}
+{"level":"debug","time":"2020-12-16 18:12:34","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =? LIMIT 1 OFFSET 0"}
+{"level":"debug","time":"2020-12-16 18:12:56","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? AND phone =? LIMIT 1 OFFSET 10"}
+{"level":"debug","time":"2020-12-16 18:23:48","file":"db/db.go:67","msg":"SELECT * FROM user  LIMIT 1 OFFSET 10"}
+{"level":"debug","time":"2020-12-16 18:23:59","file":"db/db.go:67","msg":"SELECT * FROM user  LIMIT 1 OFFSET 0"}
+{"level":"debug","time":"2020-12-16 18:27:20","file":"db/db.go:67","msg":"SELECT * FROM user WHERE name =? LIMIT 1 OFFSET 0"}
+{"level":"debug","time":"2020-12-16 18:27:42","file":"db/db.go:67","msg":"SELECT * FROM user  LIMIT 1 OFFSET 0"}

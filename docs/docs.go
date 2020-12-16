@@ -52,6 +52,50 @@ var doc = `{
                         "name": "id",
                         "in": "path",
                         "required": true
+                    },
+                    {
+                        "description": "修改参数",
+                        "name": "id",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/user.userUpdateReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "请求成功",
+                        "schema": {
+                            "$ref": "#/definitions/utils.SuccessResp"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "description": "删除用户",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "删除用户"
+                ],
+                "summary": "删除用户",
+                "parameters": [
+                    {
+                        "type": "integer",
+                        "description": "user ID",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
                     }
                 ],
                 "responses": {
@@ -208,6 +252,21 @@ var doc = `{
                     "description": "密码",
                     "type": "string",
                     "example": "123456"
+                },
+                "phone": {
+                    "description": "手机号",
+                    "type": "string",
+                    "example": "18817281823"
+                }
+            }
+        },
+        "user.userUpdateReq": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "description": "姓名",
+                    "type": "string",
+                    "example": "jhon"
                 },
                 "phone": {
                     "description": "手机号",

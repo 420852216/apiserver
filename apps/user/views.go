@@ -69,10 +69,10 @@ func Login(ctx *gin.Context) {
 // @Accept json
 // @produce json
 // @Param id path int true "user ID"
-// @Param id body userUpdateReq true "user ID"
+// @Param id body userUpdateReq true "修改参数"
 // @Success 200 {object} utils.SuccessResp "请求成功"
 // @Router /api/user/{id} [put]
-func userUpdate(ctx *gin.Context) {
+func userUpdateView(ctx *gin.Context) {
 	args := new(idUri)
 	if err:=ctx.ShouldBindUri(args); err!=nil{
 		Failed(ctx, "用户ID错误", err.Error())
@@ -83,6 +83,54 @@ func userUpdate(ctx *gin.Context) {
 		Failed(ctx, "参数错误", err.Error())
 		return
 	}
-	updateUser(args,values)
-	Success(ctx, "注册成功", nil)
+	if err:=updateUser(args,values);err!=nil{
+		Failed(ctx, "参数错误", err.Error())
+		return
+	}
+	Success(ctx, "修改成功", nil)
+}
+
+// @description 删除用户
+// @Tags  删除用户
+// @summary 删除用户
+// @Security ApiKeyAuth
+// @Accept json
+// @produce json
+// @Param id path int true "user ID"
+// @Success 200 {object} utils.SuccessResp "请求成功"
+// @Router /api/user/{id} [delete]
+func userDestroyView(ctx *gin.Context) {
+	args := new(idUri)
+	if err:=ctx.ShouldBindUri(args); err!=nil{
+		Failed(ctx, "用户ID错误", err.Error())
+		return
+	}
+	if err:=deleteUser(args);err!=nil{
+		Failed(ctx, "参数错误", err.Error())
+		return
+	}
+	Success(ctx, "删除成功", nil)
+}
+
+// @description 删除用户
+// @Tags  删除用户
+// @summary 删除用户
+// @Security ApiKeyAuth
+// @Accept json
+// @produce json
+// @Param id path int true "user ID"
+// @Success 200 {object} utils.SuccessResp "请求成功"
+// @Router /api/user/{id} [delete]
+func userListView(ctx *gin.Context) {
+	filter:=new(userFilter)
+	err:=ctx.ShouldBindQuery(filter)
+	if err != nil {
+		Failed(ctx, "参数错误", err.Error())
+	}
+	users:=make([]userSerializer,0)
+	if err:=filterUser(&users,filter);err!=nil{
+		Failed(ctx, "查询失败", err.Error())
+		return
+	}
+	Success(ctx, "查询成功", users)
 }

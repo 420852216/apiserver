@@ -54,10 +54,17 @@ type LoginResp struct {
 }
 
 type userUpdateReq struct {
-	Name     *string `json:"name" example:"jhon" db:"name"` // 姓名
+	Name     *string `json:"name" example:"jhon" db:"name"` //姓名
 	Phone   *string `json:"phone" example:"18817281823" db:"phone"` //手机号
 }
 
 type idUri struct {
 	ID   int `uri:"id" validate:"required" db:"id"`
+}
+
+type userSerializer struct {
+	ID int
+	Name string
+	Email string
+	Phone string
 }

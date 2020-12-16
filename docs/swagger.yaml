@@ -51,6 +51,17 @@ definitions:
     - email
     - name
     type: object
+  user.userUpdateReq:
+    properties:
+      name:
+        description: 姓名
+        example: jhon
+        type: string
+      phone:
+        description: 手机号
+        example: "18817281823"
+        type: string
+    type: object
   utils.SuccessResp:
     properties:
       code:
@@ -71,6 +82,28 @@ info:
   version: v1
 paths:
   /api/user/{id}:
+    delete:
+      consumes:
+      - application/json
+      description: 删除用户
+      parameters:
+      - description: user ID
+        in: path
+        name: id
+        required: true
+        type: integer
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: 请求成功
+          schema:
+            $ref: '#/definitions/utils.SuccessResp'
+      security:
+      - ApiKeyAuth: []
+      summary: 删除用户
+      tags:
+      - 删除用户
     put:
       consumes:
       - application/json
@@ -81,6 +114,12 @@ paths:
         name: id
         required: true
         type: integer
+      - description: 修改参数
+        in: body
+        name: id
+        required: true
+        schema:
+          $ref: '#/definitions/user.userUpdateReq'
       produces:
       - application/json
       responses:
